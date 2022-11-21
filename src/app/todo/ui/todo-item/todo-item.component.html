@@ -1,0 +1,8 @@
+<div class="card w-100">
+  <div class="card-body">
+    <p class="card-text">{{ todo.description }}</p>
+    <button *ngIf="!todo.isComplete" class="btn btn-sm btn-primary" (click)="handleComplete()">Complete</button>
+    <button *ngIf="todo.isComplete" class="btn btn-sm btn-success" (click)="handleComplete()">Completed</button>
+    <button class="btn btn-sm btn-danger mx-2" (click)="handleRemove()">Remove</button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<app-todo-add (todoAdd)="handleAddTodo($event)"></app-todo-add>
+
+<hr>
+<div
+  *ngFor="let todoItem of (todoList$ | async)"
+  class="my-2"
+>
+  <app-todo-item
+    [todo]="todoItem"
+    (complete)="handleCompleteTodo(todoItem)"
+    (remove)="handleRemoveTodo(todoItem)"
+  ></app-todo-item>
+</div>
