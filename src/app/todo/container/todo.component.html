@@ -1,3 +1,9 @@
+<h2>Filters</h2>
+<app-todo-status-filter
+  [status]="statusFilter$ | async"
+  (statusChange)="handleStatusFilterChange($event)"
+></app-todo-status-filter>
+<hr>
 <app-todo-add (todoAdd)="handleAddTodo($event)"></app-todo-add>
 
 <hr>
@@ -11,3 +17,7 @@
     (remove)="handleRemoveTodo(todoItem)"
   ></app-todo-item>
 </div>
+
+<p class="text-muted text-center" *ngIf="!(hasDisplayedTodo$ | async)">
+  No result...
+</p>

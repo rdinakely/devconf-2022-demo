@@ -8,13 +8,15 @@ import {StoreModule} from "@ngrx/store";
 import {todoFeatureReducer} from "./store/reducers/todo.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {TodoEffects} from "./store/effects/todo.effects";
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+import {AsyncPipe, NgForOf, NgIf, TitleCasePipe} from "@angular/common";
+import { TodoStatusFilterComponent } from './ui/todo-filter/todo-status-filter.component';
 
 @NgModule({
   declarations: [
     TodoComponent,
     TodoItemComponent,
     TodoAddComponent,
+    TodoStatusFilterComponent,
   ],
   exports: [
     TodoComponent,
@@ -26,6 +28,7 @@ import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
     AsyncPipe,
     NgForOf,
     NgIf,
+    TitleCasePipe,
   ],
   providers: [
     TodoApiService,

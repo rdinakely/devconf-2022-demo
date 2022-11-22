@@ -1,0 +1,8 @@
+<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="!status" href="#" (click)="changeStatus(null)">All</a>
+  </li>
+  <li class="nav-item" *ngFor="let statusItem of availableStatuses">
+    <a class="nav-link" [class.active]="statusItem === status" href="#" (click)="changeStatus(statusItem)">{{ statusItem | titlecase }}</a>
+  </li>
+</ul>

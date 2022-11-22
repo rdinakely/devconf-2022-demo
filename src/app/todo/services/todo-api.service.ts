@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {TodoModel} from '../../shared/models/todo.model';
+import {TodoStatusEnum} from "../../shared/enums/todo-status.enum";
 
 const initialTodos: TodoModel[] = [
-  { id: Date.now(), description: 'DevConf', isComplete: false },
-  { id: Date.now() + 1, description: 'Shopping', isComplete: false },
-  { id: Date.now() + 2, description: 'Sleep', isComplete: false },
-]
+  { id: Date.now(), description: 'DevConf', status: TodoStatusEnum.UNDONE },
+  { id: Date.now() + 1, description: 'Shopping', status: TodoStatusEnum.UNDONE },
+  { id: Date.now() + 2, description: 'Sleep', status: TodoStatusEnum.UNDONE },
+];
 
 @Injectable()
 export class TodoApiService {
@@ -18,18 +19,21 @@ export class TodoApiService {
     return of({
       id: Date.now(),
       description,
-      isComplete: false,
+      status: TodoStatusEnum.UNDONE,
     });
   }
 
   public remove(todo: TodoModel): Observable<TodoModel> {
-    return of(todo);
+    return of({
+      ...todo,
+      status: TodoStatusEnum.REMOVED,
+    });
   }
 
   public complete(todo: TodoModel): Observable<TodoModel> {
     return of ({
       ...todo,
-      isComplete: true,
+      status: TodoStatusEnum.DONE,
     });
   }
 }

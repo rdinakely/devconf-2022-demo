@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {TodoModel} from "../../../shared/models/todo.model";
+import {TodoStatusEnum} from "../../../shared/enums/todo-status.enum";
 
 @Component({
   selector: 'app-todo-item',
@@ -16,6 +17,8 @@ export class TodoItemComponent {
 
   @Output()
   public complete: EventEmitter<void> = new EventEmitter<void>();
+
+  public readonly TodoStatus = TodoStatusEnum;
 
   public handleComplete(): void {
     this.complete.next();
