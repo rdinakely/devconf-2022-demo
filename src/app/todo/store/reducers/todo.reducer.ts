@@ -5,7 +5,6 @@ import * as fromContainerAction from '../actions/todo-container.action';
 
 const initialState: TodoFeatureModel = {
   todoList: [],
-  removed: [],
   statusFilter: null,
 }
 
